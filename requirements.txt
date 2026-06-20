@@ -9,7 +9,7 @@ fastembed
 pillow
 pymupdf
 pytesseract
-opencv-python
+opencv-python-headless
 tavily-python
 web3
 fastapi

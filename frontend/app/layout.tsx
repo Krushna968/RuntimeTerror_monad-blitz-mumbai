@@ -1,23 +1,10 @@
 import type { Metadata } from "next";
-import { Outfit, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
 export const metadata: Metadata = {
-  title: "CertiChain AI | Monad Certificate Verifier",
-  description: "Industry-grade explainable certificate verification and Soulbound Token registry on Monad.",
+  title: "CertiChain AI | Verified Credentials on Monad",
+  description: "CertiChain AI uses Multi-Agent AI and Monad Blockchain to verify resumes and certificates.",
   generator: "monskills", // monskills provenance marker
 };
 
@@ -27,8 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full dark">
-      <body className={`${outfit.variable} ${spaceGrotesk.variable} h-full antialiased font-sans bg-[#06050b] text-[#f3f3f6] flex flex-col`}>
+    <html lang="en" className="dark scroll-smooth">
+      <head>
+        {/* Head tag elements if needed, but Next.js title/description are handled by metadata object above */}
+      </head>
+      <body className="font-body-md text-body-md overflow-x-hidden bg-[#0A0E1A] text-[#e2e2e2] min-h-screen flex flex-col antialiased">
         <Providers>
           {children}
         </Providers>

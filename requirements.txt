@@ -11,3 +11,7 @@ pymupdf
 pytesseract
 opencv-python
 tavily-python
+web3
+fastapi
+uvicorn
+python-multipart

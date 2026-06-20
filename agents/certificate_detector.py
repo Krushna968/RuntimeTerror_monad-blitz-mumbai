@@ -45,7 +45,7 @@ If it IS a certificate:
 {{"is_certificate": true, "confidence": <integer 0-100>}}
 
 If it is NOT a certificate:
-{{"is_certificate": false, "confidence": <integer 0-100>, "message": "Uploaded document does not appear to be a valid certificate."}}
+{{"is_certificate": false, "confidence": <integer 0-100>, "reason": "A detailed explanation of why this document is rejected (e.g. 'This document appears to be a mathematics exam paper or syllabus rather than a certificate. It lacks completion declarations, issuing authority seals, or recipient award details.')", "instructions": "Helpful guidelines on what type of certificate the user should upload instead (e.g. 'Please upload a course completion certificate, diploma, degree, or official award letter in clean PDF or image format.')"}}
 """,
 )
 
@@ -62,7 +62,8 @@ class CertificateDetectorAgent:
             return {
                 "is_certificate": False,
                 "confidence": 0,
-                "message": "No readable text could be extracted from the document.",
+                "reason": "No readable text could be extracted from the document. The file might be blank, blurry, or password-protected.",
+                "instructions": "Please ensure you upload a high-quality scan or digital copy of a certificate where text is clear and readable."
             }
 
         chain = self.prompt | self.llm
@@ -76,7 +77,8 @@ class CertificateDetectorAgent:
             result = {
                 "is_certificate": False,
                 "confidence": 0,
-                "message": "Uploaded document does not appear to be a valid certificate.",
+                "reason": "The system was unable to classify this document format.",
+                "instructions": "Please check that you are uploading a valid certificate in PDF, PNG, or JPG format."
             }
 
         return result

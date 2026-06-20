@@ -12,7 +12,7 @@ import { Shield, Sparkles, CheckCircle2, ChevronRight, ServerCrash, Loader2, Ale
 
 // Load configurations
 const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_MONAD_CONTRACT_ADDRESS || "0x89D227e7740Cd38e5Fd0a36987c699990836efd0";
-const BACKEND_URL = "http://localhost:8000";
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
 
 // Minimal ABI for reading certificate mapping
 const READ_ABI = [

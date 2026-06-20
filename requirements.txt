@@ -1,0 +1,13 @@
+langchain
+langchain-community
+langchain-groq
+python-dotenv
+langgraph
+faiss-cpu
+streamlit
+fastembed
+pillow
+pymupdf
+pytesseract
+opencv-python
+tavily-python
